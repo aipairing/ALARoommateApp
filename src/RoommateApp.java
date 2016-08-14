@@ -33,6 +33,28 @@ public class RoommateApp {
 			"Gabon","Sao Tome and Principe"};
 	public static String[] eastAfricanCountries = {"Burundi","Djibouti","Eritrea","Ethiopia","Kenya","Rwanda",
 			"Seychelles","Somalia","Somaliland","South Sudan","Tanzania","Uganda"};
+	
+	public static boolean isAnglophone(String country) {
+		if (Arrays.asList(anglophoneCountries).contains(country)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static String whichAfricanRegion(String country) {
+		if (Arrays.asList(northAfricanCountries).contains(country)) {
+			return "North Africa";
+		} else if (Arrays.asList(westAfricanCountries).contains(country)) {
+			return "West Africa";
+		} else if (Arrays.asList(centralAfricanCountries).contains(country)) {
+			return "Central Africa";
+		} else if (Arrays.asList(eastAfricanCountries).contains(country)) {
+			return "East Africa";
+		} else {
+			return "South Africa";
+		}
+	}
 
 
 	public static void main(String[] args) {
@@ -41,15 +63,17 @@ public class RoommateApp {
 		groupIntoGender(db);
 		makeListsEqual();
 		sortBasedOnCompatibility();
-		String[][] finalMaleRankings_Y4 = generateMaleArrayRankings();
+		/**String[][] finalMaleRankings_Y4 = generateMaleArrayRankings();
 		String[][] finalMaleRankings_Y2 = generateMaleArrayRankings2();
 		String[][] finalFemaleRankings_Y4 = generateFemaleArrayRankings();
-		String[][] finalFemaleRankings_Y2 = generateFemaleArrayRankings2();
+		String[][] finalFemaleRankings_Y2 = generateFemaleArrayRankings2();*/
 		
 		/**System.out.println("---Boys---");
 		PrintStableMatching(finalMaleRankings_Y2,finalMaleRankings_Y4);
 		System.out.println("---Girls---");
 		PrintStableMatching(finalFemaleRankings_Y2,finalFemaleRankings_Y4);*/
+		System.out.println("Ghana is in: "+ whichAfricanRegion("Ghana"));
+		System.out.println("Is Ghana anglophone? " + isAnglophone("Ghana"));
 	}
 
 	/**
